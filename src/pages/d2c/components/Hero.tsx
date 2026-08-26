@@ -7,6 +7,7 @@ import heroMockup from "../../mockups/hero-multichannel-mockup.webp";
 import heroMobile from "../../mockups/hero-chat-mockup-mobile.webp";
 import shopifyPartner from "../../mockups/shopify-partner.webp";
 import metaPartner from "../../mockups/meta-business-partner.webp";
+import { Logo } from "./Logo";
 
 
 // Rotating hero headlines. Each hits one distinct promise (transparency, ROI,
@@ -56,8 +57,18 @@ export function Hero() {
         <div className="absolute inset-0 bg-grid-faint opacity-[0.7] [mask-image:radial-gradient(ellipse_at_top_right,black,transparent_65%)]" />
       </div>
 
-      <div className="relative mx-auto flex max-w-container items-center px-4 pb-10 pt-12 sm:px-6 lg:min-h-[calc(100dvh-4rem)] lg:px-8 lg:pb-12 lg:pt-16">
-        <div className="grid w-full grid-cols-1 items-center gap-10 lg:grid-cols-[5fr_6fr] lg:gap-10">
+      <div className="relative mx-auto max-w-container px-4 sm:px-6 lg:px-8">
+        {/* Logo sits on the hero's own background — no separate white header band */}
+        <motion.div
+          initial={reduce ? false : { opacity: 0, y: -8 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+          className="pt-5 sm:pt-6"
+        >
+          <Logo />
+        </motion.div>
+        <div className="flex items-center pb-10 pt-10 lg:min-h-[calc(100dvh-9rem)] lg:pb-12 lg:pt-12">
+          <div className="grid w-full grid-cols-1 items-center gap-10 lg:grid-cols-[5fr_6fr] lg:gap-10">
           {/* LEFT: copy + CTA */}
           <motion.div
             variants={container}
@@ -190,6 +201,7 @@ export function Hero() {
               />
             </motion.div>
           </motion.div>
+          </div>
         </div>
       </div>
     </section>

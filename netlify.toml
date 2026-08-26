@@ -1,0 +1,14 @@
+# Netlify build config for the D2C landing (CRA + craco)
+[build]
+  command = "npm run build"
+  publish = "build"
+
+[build.environment]
+  NODE_VERSION = "20"
+  NPM_FLAGS = "--legacy-peer-deps"
+
+# SPA routing: send all paths to index.html (react-router handles them)
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
