@@ -99,7 +99,7 @@ export function Hero() {
             <motion.h1
               variants={item}
               aria-label={`${HEADLINES[0].before}${HEADLINES[0].accent}${HEADLINES[0].after}`}
-              className="relative mt-5 min-h-[130px] sm:min-h-[150px] lg:min-h-[170px] font-display text-4xl font-bold leading-[1.08] tracking-tight text-zinc-900 sm:text-5xl lg:text-[3.25rem]"
+              className="relative mt-5 font-display text-4xl font-bold leading-[1.08] tracking-tight text-zinc-900 sm:text-5xl lg:text-[3.25rem]"
             >
               <AnimatePresence mode="popLayout" initial={false}>
                 <motion.span

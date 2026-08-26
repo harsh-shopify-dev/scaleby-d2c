@@ -1,5 +1,4 @@
 import React from 'react';
-import { Navbar } from "./d2c/components/Navbar";
 import { Hero } from "./d2c/components/Hero";
 import { BrandMarquee } from "./d2c/components/BrandMarquee";
 import { WhyScaleBy } from "./d2c/components/WhyScaleBy";
@@ -11,7 +10,6 @@ import { Integrations } from "./d2c/components/Integrations";
 import { Pricing } from "./d2c/components/Pricing";
 import { FAQ } from "./d2c/components/FAQ";
 import { FinalCTA } from "./d2c/components/FinalCTA";
-import { Footer } from "./d2c/components/Footer";
 import { MetaPixel } from "./d2c/components/MetaPixel";
 
 const jsonLd = {
@@ -80,7 +78,6 @@ export default function D2CPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <MetaPixel />
-      <Navbar />
       <main>
         <Hero />
         <BrandMarquee />
@@ -94,7 +91,29 @@ export default function D2CPage() {
         <FAQ />
         <FinalCTA />
       </main>
-      <Footer />
+
+      {/* Minimal landing-page footer: legal links only (no nav/columns) */}
+      <footer className="bg-zinc-950 py-6">
+        <div className="mx-auto flex max-w-container flex-col items-center justify-between gap-3 px-4 text-center sm:flex-row sm:px-6 lg:px-8">
+          <p className="text-xs text-white/40">
+            &copy; {new Date().getFullYear()} ScaleBy Technologies Pvt Ltd. All rights reserved.
+          </p>
+          <div className="flex items-center gap-6">
+            <a
+              href="https://scaleby.in/terms-of-service"
+              className="text-xs font-medium text-white/50 transition-colors hover:text-white"
+            >
+              Terms of Service
+            </a>
+            <a
+              href="https://scaleby.in/privacy-policy"
+              className="text-xs font-medium text-white/50 transition-colors hover:text-white"
+            >
+              Privacy Policy
+            </a>
+          </div>
+        </div>
+      </footer>
     </>
   );
 }
